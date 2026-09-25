@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta
@@ -9,14 +10,22 @@
         content="width=device-width, initial-scale=1.0"
     >
 
+    <!-- =========================
+         SEO
+    ========================= -->
+
+    <title>
+        Beautex Style Avenue | Hair Salon & Beauty Services in Brackenhurst
+    </title>
+
     <meta
         name="description"
-        content="Beautex Style Avenue — professional hair, barber, grooming and nail services in Brackenhurst, Alberton. Serving customers since 2017."
+        content="Beautex Style Avenue is a professional hair salon and beauty studio in Brackenhurst, Alberton. Offering hairstyling, braids, fades, hair colouring, treatments, manicures, pedicures and more."
     >
 
     <meta
         name="keywords"
-        content="Beautex Style Avenue, hair salon, barber, haircuts, braids, dreadlocks, manicure, pedicure, Brackenhurst, Alberton"
+        content="Beautex Style Avenue, hair salon Brackenhurst, hair salon Alberton, hairstylist Alberton, braids Brackenhurst, fades Alberton, hair colouring Alberton, manicure Alberton, pedicure Alberton"
     >
 
     <meta
@@ -24,9 +33,20 @@
         content="Beautex Style Avenue"
     >
 
-    <title>
-        Beautex Style Avenue | Hair, Beauty & Grooming
-    </title>
+    <meta
+        name="robots"
+        content="index, follow"
+    >
+
+    <link
+        rel="canonical"
+        href="https://snymanm275-code.github.io/beautex-style-avenue/"
+    >
+
+
+    <!-- =========================
+         FAVICON
+    ========================= -->
 
     <link
         rel="icon"
@@ -34,10 +54,97 @@
         href="images/beautexstyleavenue.png"
     >
 
+
+    <!-- =========================
+         OPEN GRAPH
+    ========================= -->
+
+    <meta
+        property="og:title"
+        content="Beautex Style Avenue | Hair Salon & Beauty Services"
+    >
+
+    <meta
+        property="og:description"
+        content="Professional hair and beauty services in Brackenhurst, Alberton. Book your appointment with Beautex Style Avenue."
+    >
+
+    <meta
+        property="og:url"
+        content="https://snymanm275-code.github.io/beautex-style-avenue/"
+    >
+
+    <meta
+        property="og:image"
+        content="https://snymanm275-code.github.io/beautex-style-avenue/images/beautexstyleavenue.png"
+    >
+
+    <meta
+        property="og:type"
+        content="website"
+    >
+
+
+    <!-- =========================
+         LOCAL BUSINESS SCHEMA
+    ========================= -->
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BeautySalon",
+        "name": "Beautex Style Avenue",
+        "url": "https://snymanm275-code.github.io/beautex-style-avenue/",
+        "logo": "https://snymanm275-code.github.io/beautex-style-avenue/images/beautexstyleavenue.png",
+        "image": "https://snymanm275-code.github.io/beautex-style-avenue/images/photo%201.jpeg",
+        "telephone": "+27840462860",
+        "email": "novelerbongani@gmail.com",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "106 Hennie Alberts",
+            "addressLocality": "Brackenhurst",
+            "addressRegion": "Gauteng",
+            "addressCountry": "ZA"
+        },
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday"
+                ],
+                "opens": "08:00",
+                "closes": "19:00"
+            },
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [
+                    "Saturday",
+                    "Sunday"
+                ],
+                "opens": "07:00",
+                "closes": "17:00"
+            }
+        ],
+        "sameAs": [
+            "https://web.facebook.com/p/Beautex-style-avenue-100032848765828/"
+        ]
+    }
+    </script>
+
+
+    <!-- =========================
+         STYLESHEET
+    ========================= -->
+
     <link
         rel="stylesheet"
         href="style.css"
     >
+
 </head>
 
 
@@ -45,23 +152,19 @@
 
 
 <!-- =========================
-     HEADER
+     NAVIGATION
 ========================= -->
 
 <header class="header">
 
     <div class="container nav-container">
 
-        <a
-            href="#home"
-            class="logo"
-        >
+        <a href="#home" class="logo">
             <img
                 src="images/beautexstyleavenue.png"
-                alt="Beautex Style Avenue"
+                alt="Beautex Style Avenue logo"
             >
         </a>
-
 
         <button
             class="menu-toggle"
@@ -71,50 +174,16 @@
             ☰
         </button>
 
+        <nav class="nav" id="navMenu">
 
-        <nav
-            class="nav"
-            id="navMenu"
-        >
-
-            <a href="#home">
-                Home
-            </a>
-
-            <a href="#services">
-                Services
-            </a>
-
-            <a href="#about">
-                About
-            </a>
-
-            <a href="#gallery">
-                Gallery
-            </a>
-
-            <a href="#reviews">
-                Reviews
-            </a>
-
-            <a href="#faq">
-                FAQ
-            </a>
-
-            <a href="#booking">
-                Booking
-            </a>
-
-            <a href="#contact">
-                Contact
-            </a>
-
-            <a
-                href="#booking"
-                class="nav-book"
-            >
-                Book Now
-            </a>
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#about">About</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#faq">FAQ</a>
+            <a href="#contact">Contact</a>
+            <a href="#booking" class="nav-book">Book Now</a>
 
         </nav>
 
@@ -123,35 +192,31 @@
 </header>
 
 
-
 <!-- =========================
      HERO
 ========================= -->
 
-<section
-    class="hero"
-    id="home"
->
+<section id="home" class="hero">
 
     <div class="hero-overlay"></div>
 
     <div class="container hero-content">
 
-        <p class="hero-small">
-            SERVING CUSTOMERS SINCE 2017
+        <p class="hero-tagline">
+            BEAUTY • STYLE • CONFIDENCE
         </p>
 
         <h1>
-            BEAUTEX STYLE AVENUE
+            Beautex Style Avenue
         </h1>
 
-        <p class="hero-tagline">
+        <p class="hero-subtitle">
             Live it.
         </p>
 
         <p class="hero-description">
-            Professional hair, beauty, barber and grooming services
-            in Brackenhurst, Alberton.
+            Professional hair and beauty services designed
+            to help you look and feel your best.
         </p>
 
         <div class="hero-buttons">
@@ -165,7 +230,7 @@
 
             <a
                 href="#services"
-                class="btn btn-secondary"
+                class="btn btn-outline"
             >
                 Explore Services
             </a>
@@ -177,327 +242,210 @@
 </section>
 
 
-
 <!-- =========================
      SERVICES
 ========================= -->
 
-<section
-    class="section"
-    id="services"
->
+<section id="services" class="section">
 
     <div class="container">
 
         <div class="section-heading">
 
-            <p class="section-label">
+            <span class="section-label">
                 WHAT WE OFFER
-            </p>
+            </span>
 
             <h2>
                 Our Services
             </h2>
 
             <p>
-                Professional beauty, hair and grooming services
-                tailored to your style.
+                Professional beauty services tailored to your style.
             </p>
 
         </div>
-
 
 
         <!-- Hair & Styling -->
 
-        <div class="service-category">
+        <h3 class="service-category-title">
+            Hair & Styling
+        </h3>
 
-            <h3>
-                Hair & Styling
-            </h3>
+        <div class="services-grid">
 
-            <div class="services-grid">
+            <div class="service-card">
+                <h3>Pixie Cut</h3>
+                <p>Professional pixie cuts tailored to your style.</p>
+            </div>
 
-                <div class="service-card">
-                    <h4>Pixie Cut</h4>
-                    <p>Professional pixie cuts tailored to your style.</p>
-                    <a href="#booking">Enquire</a>
-                </div>
+            <div class="service-card">
+                <h3>Pixie Cut & Style</h3>
+                <p>A complete pixie cut with professional styling.</p>
+            </div>
 
-                <div class="service-card">
-                    <h4>Pixie Cut & Style</h4>
-                    <p>A complete pixie cut and styling experience.</p>
-                    <a href="#booking">Enquire</a>
-                </div>
+            <div class="service-card">
+                <h3>Hairstyling</h3>
+                <p>Professional styling for your desired look.</p>
+            </div>
 
-                <div class="service-card">
-                    <h4>Hairstyling</h4>
-                    <p>Professional styling for your desired look.</p>
-                    <a href="#booking">Enquire</a>
-                </div>
+            <div class="service-card">
+                <h3>Blowdry</h3>
+                <p>Professional blowdry and finishing service.</p>
+            </div>
 
-                <div class="service-card">
-                    <h4>Blowdry</h4>
-                    <p>Professional blowdry and finishing services.</p>
-                    <a href="#booking">Enquire</a>
-                </div>
+            <div class="service-card">
+                <h3>Hair Colouring</h3>
+                <p>Refresh or transform your hair with professional colour.</p>
+            </div>
 
-                <div class="service-card">
-                    <h4>Hair Colouring</h4>
-                    <p>Hair colouring services for your preferred look.</p>
-                    <a href="#booking">Enquire</a>
-                </div>
+            <div class="service-card">
+                <h3>Hair Straightening</h3>
+                <p>Professional straightening for a smooth finish.</p>
+            </div>
 
-                <div class="service-card">
-                    <h4>Hair Straightening</h4>
-                    <p>Professional hair straightening services.</p>
-                    <a href="#booking">Enquire</a>
-                </div>
+            <div class="service-card">
+                <h3>Perms</h3>
+                <p>Professional perm services for your desired style.</p>
+            </div>
 
-                <div class="service-card">
-                    <h4>Perms</h4>
-                    <p>Professional perm services and styling.</p>
-                    <a href="#booking">Enquire</a>
-                </div>
+            <div class="service-card">
+                <h3>Curly Hair</h3>
+                <p>Styling and care for beautiful curly hair.</p>
+            </div>
 
-                <div class="service-card">
-                    <h4>Curly Hair</h4>
-                    <p>Styling and care for curly hair.</p>
-                    <a href="#booking">Enquire</a>
-                </div>
+            <div class="service-card">
+                <h3>Hair Hydration Treatments</h3>
+                <p>Hair treatments focused on hydration and care.</p>
+            </div>
 
-                <div class="service-card">
-                    <h4>Hair Hydration Treatments</h4>
-                    <p>Hydration-focused treatments for your hair.</p>
-                    <a href="#booking">Enquire</a>
-                </div>
-
-                <div class="service-card">
-                    <h4>Hair Regrowth</h4>
-                    <p>Hair care services focused on regrowth support.</p>
-                    <a href="#booking">Enquire</a>
-                </div>
-
+            <div class="service-card">
+                <h3>Hair Regrowth</h3>
+                <p>Hair care services focused on supporting healthier-looking hair.</p>
             </div>
 
         </div>
-
 
 
         <!-- Braids -->
 
-        <div class="service-category">
+        <h3 class="service-category-title">
+            Braids & Protective Styles
+        </h3>
 
-            <h3>
-                Braids & Protective Styles
-            </h3>
+        <div class="services-grid">
 
-            <div class="services-grid">
+            <div class="service-card">
+                <h3>Box Braids</h3>
+                <p>Professional box braiding for a stylish protective look.</p>
+            </div>
 
-                <div class="service-card">
-                    <h4>Box Braids</h4>
-                    <p>Professional box braid styling.</p>
-                    <a href="#booking">Enquire</a>
-                </div>
+            <div class="service-card">
+                <h3>Braids</h3>
+                <p>Professional braiding styles tailored to your preference.</p>
+            </div>
 
-                <div class="service-card">
-                    <h4>Braids</h4>
-                    <p>Beautiful braided styles for different occasions.</p>
-                    <a href="#booking">Enquire</a>
-                </div>
+            <div class="service-card">
+                <h3>Twist Braids</h3>
+                <p>Stylish twist braids with professional finishing.</p>
+            </div>
 
-                <div class="service-card">
-                    <h4>Twist Braids</h4>
-                    <p>Professional twist braid styling.</p>
-                    <a href="#booking">Enquire</a>
-                </div>
-
-                <div class="service-card">
-                    <h4>Dreadlocks</h4>
-                    <p>Dreadlock styling and maintenance.</p>
-                    <a href="#booking">Enquire</a>
-                </div>
-
+            <div class="service-card">
+                <h3>Dreadlocks</h3>
+                <p>Professional dreadlock styling and maintenance.</p>
             </div>
 
         </div>
-
 
 
         <!-- Barber -->
 
-        <div class="service-category">
+        <h3 class="service-category-title">
+            Barber & Grooming
+        </h3>
 
-            <h3>
-                Barber & Grooming
-            </h3>
+        <div class="services-grid">
 
-            <div class="services-grid">
+            <div class="service-card">
+                <h3>All Fades</h3>
+                <p>Clean, professional fades tailored to your style.</p>
+            </div>
 
-                <div class="service-card">
-                    <h4>All Fades</h4>
-                    <p>Professional fade haircuts and finishing.</p>
-                    <a href="#booking">Enquire</a>
-                </div>
+            <div class="service-card">
+                <h3>Wet Shave</h3>
+                <p>A professional traditional wet shave.</p>
+            </div>
 
-                <div class="service-card">
-                    <h4>Wet Shave</h4>
-                    <p>Professional wet shave grooming service.</p>
-                    <a href="#booking">Enquire</a>
-                </div>
+            <div class="service-card">
+                <h3>Beard Trim</h3>
+                <p>Professional beard shaping and trimming.</p>
+            </div>
 
-                <div class="service-card">
-                    <h4>Beard Trim</h4>
-                    <p>Clean and professional beard shaping.</p>
-                    <a href="#booking">Enquire</a>
-                </div>
-
-                <div class="service-card">
-                    <h4>Children's Cuts</h4>
-                    <p>Haircuts for younger customers.</p>
-                    <a href="#booking">Enquire</a>
-                </div>
-
+            <div class="service-card">
+                <h3>Children's Cuts</h3>
+                <p>Professional haircuts for children.</p>
             </div>
 
         </div>
-
 
 
         <!-- Nails -->
 
-        <div class="service-category">
+        <h3 class="service-category-title">
+            Nails
+        </h3>
 
-            <h3>
-                Nails
-            </h3>
+        <div class="services-grid">
 
-            <div class="services-grid">
+            <div class="service-card">
+                <h3>Manicure</h3>
+                <p>Professional manicure services.</p>
+            </div>
 
-                <div class="service-card">
-                    <h4>Manicure</h4>
-                    <p>Professional manicure services.</p>
-                    <a href="#booking">Enquire</a>
-                </div>
-
-                <div class="service-card">
-                    <h4>Pedicure</h4>
-                    <p>Professional pedicure services.</p>
-                    <a href="#booking">Enquire</a>
-                </div>
-
+            <div class="service-card">
+                <h3>Pedicure</h3>
+                <p>Professional pedicure services.</p>
             </div>
 
         </div>
 
-    </div>
 
-</section>
-
-
-
-<!-- =========================
-     ABOUT
-========================= -->
-
-<section
-    class="section about-section"
-    id="about"
->
-
-    <div class="container about-grid">
-
-        <div class="about-content">
-
-            <p class="section-label">
-                ABOUT US
-            </p>
-
-            <h2>
-                Style That Lets You Live It.
-            </h2>
-
-            <p>
-                Beautex Style Avenue has been serving customers
-                since 2017, providing professional hair, beauty,
-                barber and grooming services.
-            </p>
-
-            <p>
-                We are located at 106 Hennie Alberts,
-                Brackenhurst Ext 2, Alberton.
-            </p>
+        <div class="section-cta">
 
             <a
                 href="#booking"
                 class="btn btn-primary"
             >
-                Book Your Visit
+                Enquire About a Service
             </a>
-
-        </div>
-
-
-        <div class="about-highlight">
-
-            <div>
-                <strong>
-                    2017
-                </strong>
-
-                <span>
-                    Serving Customers Since
-                </span>
-            </div>
-
-            <div>
-                <strong>
-                    Professional
-                </strong>
-
-                <span>
-                    Hair & Beauty Services
-                </span>
-            </div>
-
-            <div>
-                <strong>
-                    Brackenhurst
-                </strong>
-
-                <span>
-                    Alberton
-                </span>
-            </div>
 
         </div>
 
     </div>
 
 </section>
-
 
 
 <!-- =========================
      WHY CHOOSE US
 ========================= -->
 
-<section class="section">
+<section class="section section-dark">
 
     <div class="container">
 
         <div class="section-heading">
 
-            <p class="section-label">
-                WHY BEAUTEX
-            </p>
+            <span class="section-label">
+                WHY CHOOSE US
+            </span>
 
             <h2>
-                Why Choose Us?
+                Style You Can Feel
             </h2>
 
         </div>
-
 
         <div class="why-grid">
 
@@ -512,8 +460,8 @@
                 </h3>
 
                 <p>
-                    Quality hair, beauty and grooming services
-                    for every customer.
+                    Quality hair and beauty services delivered
+                    with care and attention to detail.
                 </p>
 
             </div>
@@ -526,11 +474,12 @@
                 </div>
 
                 <h3>
-                    Experienced
+                    Experienced Team
                 </h3>
 
                 <p>
-                    Serving customers since 2017.
+                    Serving our customers since 2017 with
+                    a passion for beauty and style.
                 </p>
 
             </div>
@@ -543,30 +492,12 @@
                 </div>
 
                 <h3>
-                    Wide Range of Services
+                    Convenient Location
                 </h3>
 
                 <p>
-                    Hair, braids, barbering, grooming and nails
-                    all in one place.
-                </p>
-
-            </div>
-
-
-            <div class="why-card">
-
-                <div class="why-icon">
-                    ✦
-                </div>
-
-                <h3>
-                    Easy Booking
-                </h3>
-
-                <p>
-                    Contact us directly through WhatsApp
-                    to arrange your appointment.
+                    Visit us at 106 Hennie Alberts,
+                    Brackenhurst Ext 2.
                 </p>
 
             </div>
@@ -578,59 +509,26 @@
 </section>
 
 
-
-<!-- =========================
-     FEATURED CTA
-========================= -->
-
-<section class="featured-cta">
-
-    <div class="container">
-
-        <p>
-            READY FOR YOUR NEXT LOOK?
-        </p>
-
-        <h2>
-            Your Style. Your Avenue.
-        </h2>
-
-        <a
-            href="#booking"
-            class="btn btn-primary"
-        >
-            Book an Appointment
-        </a>
-
-    </div>
-
-</section>
-
-
-
 <!-- =========================
      GALLERY
 ========================= -->
 
-<section
-    class="section"
-    id="gallery"
->
+<section id="gallery" class="section">
 
     <div class="container">
 
         <div class="section-heading">
 
-            <p class="section-label">
+            <span class="section-label">
                 OUR WORK
-            </p>
+            </span>
 
             <h2>
                 Gallery
             </h2>
 
             <p>
-                Take a look at some of our work.
+                Take a look at some of our work and styles.
             </p>
 
         </div>
@@ -639,55 +537,55 @@
         <div class="gallery-grid">
 
             <div class="gallery-item">
-                <img src="images/photo 1.jpeg" alt="Beautex Style Avenue work">
+                <img src="images/photo 1.jpeg" alt="Beautex Style Avenue hair and beauty work">
             </div>
 
             <div class="gallery-item">
-                <img src="images/photo 2.jpeg" alt="Beautex Style Avenue work">
+                <img src="images/photo 2.jpeg" alt="Beautex Style Avenue hairstyle">
             </div>
 
             <div class="gallery-item">
-                <img src="images/photo 3.jpeg" alt="Beautex Style Avenue work">
+                <img src="images/photo 3.jpeg" alt="Beautex Style Avenue hair styling">
             </div>
 
             <div class="gallery-item">
-                <img src="images/photo 4.jpeg" alt="Beautex Style Avenue work">
+                <img src="images/photo 4.jpeg" alt="Beautex Style Avenue beauty service">
             </div>
 
             <div class="gallery-item">
-                <img src="images/photo 5.jpeg" alt="Beautex Style Avenue work">
+                <img src="images/photo 5.jpeg" alt="Beautex Style Avenue hairstyle">
             </div>
 
             <div class="gallery-item">
-                <img src="images/photo 6.jpeg" alt="Beautex Style Avenue work">
+                <img src="images/photo 6.jpeg" alt="Beautex Style Avenue hair service">
             </div>
 
             <div class="gallery-item">
-                <img src="images/photo 7.jpeg" alt="Beautex Style Avenue work">
+                <img src="images/photo 7.jpeg" alt="Beautex Style Avenue styling">
             </div>
 
             <div class="gallery-item">
-                <img src="images/photo 8.jpeg" alt="Beautex Style Avenue work">
+                <img src="images/photo 8.jpeg" alt="Beautex Style Avenue hair work">
             </div>
 
             <div class="gallery-item">
-                <img src="images/photo 9.jpeg" alt="Beautex Style Avenue work">
+                <img src="images/photo 9.jpeg" alt="Beautex Style Avenue beauty work">
             </div>
 
             <div class="gallery-item">
-                <img src="images/photo 10.jpeg" alt="Beautex Style Avenue work">
+                <img src="images/photo 10.jpeg" alt="Beautex Style Avenue hairstyle">
             </div>
 
             <div class="gallery-item">
-                <img src="images/photo 11.jpeg" alt="Beautex Style Avenue work">
+                <img src="images/photo 11.jpeg" alt="Beautex Style Avenue hair styling">
             </div>
 
             <div class="gallery-item">
-                <img src="images/photo 12.jpeg" alt="Beautex Style Avenue work">
+                <img src="images/photo 12.jpeg" alt="Beautex Style Avenue beauty service">
             </div>
 
             <div class="gallery-item">
-                <img src="images/photo 13.jpeg" alt="Beautex Style Avenue work">
+                <img src="images/photo 13.jpeg" alt="Beautex Style Avenue hair and beauty">
             </div>
 
         </div>
@@ -697,23 +595,103 @@
 </section>
 
 
+<!-- =========================
+     LIGHTBOX
+========================= -->
+
+<div
+    class="lightbox"
+    id="lightbox"
+    aria-hidden="true"
+>
+
+    <button
+        class="lightbox-close"
+        id="lightboxClose"
+        aria-label="Close gallery"
+    >
+        ×
+    </button>
+
+    <button
+        class="lightbox-prev"
+        id="lightboxPrev"
+        aria-label="Previous image"
+    >
+        ‹
+    </button>
+
+    <img
+        id="lightboxImage"
+        src=""
+        alt="Beautex Style Avenue gallery image"
+    >
+
+    <button
+        class="lightbox-next"
+        id="lightboxNext"
+        aria-label="Next image"
+    >
+        ›
+    </button>
+
+</div>
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section id="about" class="section section-dark">
+
+    <div class="container about-content">
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                ABOUT US
+            </span>
+
+            <h2>
+                Beautex Style Avenue
+            </h2>
+
+        </div>
+
+        <p>
+            Beautex Style Avenue has been serving customers since 2017,
+            providing professional hair and beauty services in
+            Brackenhurst Ext 2.
+        </p>
+
+        <p>
+            From haircuts and fades to braids, colouring,
+            hairstyling and nail services, our goal is to provide
+            professional service in a welcoming environment.
+        </p>
+
+        <p class="about-tagline">
+            Live it.
+        </p>
+
+    </div>
+
+</section>
+
 
 <!-- =========================
      REVIEWS
 ========================= -->
 
-<section
-    class="section reviews-section"
-    id="reviews"
->
+<section id="reviews" class="section">
 
     <div class="container">
 
         <div class="section-heading">
 
-            <p class="section-label">
+            <span class="section-label">
                 CUSTOMER REVIEWS
-            </p>
+            </span>
 
             <h2>
                 What Our Customers Say
@@ -729,17 +707,18 @@
             </div>
 
             <div class="rating-stars">
-                ★ ★ ★ ★ ★
+                ★★★★★
             </div>
 
             <p>
-                Google rating
+                Rated by customers on Google
             </p>
 
             <a
                 href="https://www.google.com/maps/search/?api=1&query=Beautex+Style+Avenue"
                 target="_blank"
                 rel="noopener noreferrer"
+                class="btn btn-outline"
             >
                 View Google Reviews
             </a>
@@ -751,23 +730,19 @@
 </section>
 
 
-
 <!-- =========================
      FAQ
 ========================= -->
 
-<section
-    class="section faq-section"
-    id="faq"
->
+<section id="faq" class="section section-dark">
 
     <div class="container">
 
         <div class="section-heading">
 
-            <p class="section-label">
+            <span class="section-label">
                 FAQ
-            </p>
+            </span>
 
             <h2>
                 Frequently Asked Questions
@@ -781,23 +756,21 @@
 
             <div class="faq-item">
 
-                <button class="faq-question">
-
-                    <span>
-                        What are your opening hours?
-                    </span>
-
-                    <span>
-                        +
-                    </span>
-
+                <button
+                    class="faq-question"
+                    type="button"
+                >
+                    What services do you offer?
+                    <span>+</span>
                 </button>
 
                 <div class="faq-answer">
 
                     <p>
-                        Weekdays: 08:00–19:00.
-                        Weekends: 07:00–17:00.
+                        We offer haircuts, fades, hairstyling,
+                        braids, colouring, perms, dreadlocks,
+                        beard grooming, manicures, pedicures
+                        and more.
                     </p>
 
                 </div>
@@ -805,26 +778,21 @@
             </div>
 
 
-
             <div class="faq-item">
 
-                <button class="faq-question">
-
-                    <span>
-                        Where are you located?
-                    </span>
-
-                    <span>
-                        +
-                    </span>
-
+                <button
+                    class="faq-question"
+                    type="button"
+                >
+                    Where are you located?
+                    <span>+</span>
                 </button>
 
                 <div class="faq-answer">
 
                     <p>
-                        106 Hennie Alberts,
-                        Brackenhurst Ext 2, Alberton.
+                        We are located at 106 Hennie Alberts,
+                        Brackenhurst Ext 2.
                     </p>
 
                 </div>
@@ -832,26 +800,21 @@
             </div>
 
 
-
             <div class="faq-item">
 
-                <button class="faq-question">
-
-                    <span>
-                        How can I book an appointment?
-                    </span>
-
-                    <span>
-                        +
-                    </span>
-
+                <button
+                    class="faq-question"
+                    type="button"
+                >
+                    What are your opening hours?
+                    <span>+</span>
                 </button>
 
                 <div class="faq-answer">
 
                     <p>
-                        You can use the booking form on this website
-                        and continue directly to WhatsApp.
+                        Monday to Friday: 08:00–19:00.
+                        Saturday and Sunday: 07:00–17:00.
                     </p>
 
                 </div>
@@ -859,27 +822,21 @@
             </div>
 
 
-
             <div class="faq-item">
 
-                <button class="faq-question">
-
-                    <span>
-                        What services do you offer?
-                    </span>
-
-                    <span>
-                        +
-                    </span>
-
+                <button
+                    class="faq-question"
+                    type="button"
+                >
+                    How can I make a booking?
+                    <span>+</span>
                 </button>
 
                 <div class="faq-answer">
 
                     <p>
-                        We offer hair styling, colouring, braids,
-                        dreadlocks, barbering, grooming,
-                        manicures and pedicures.
+                        You can use our online booking form
+                        or contact us directly on WhatsApp.
                     </p>
 
                 </div>
@@ -887,52 +844,20 @@
             </div>
 
 
-
             <div class="faq-item">
 
-                <button class="faq-question">
-
-                    <span>
-                        Do you offer children's haircuts?
-                    </span>
-
-                    <span>
-                        +
-                    </span>
-
+                <button
+                    class="faq-question"
+                    type="button"
+                >
+                    Do you offer children's haircuts?
+                    <span>+</span>
                 </button>
 
                 <div class="faq-answer">
 
                     <p>
-                        Yes. Children's cuts are available.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="faq-item">
-
-                <button class="faq-question">
-
-                    <span>
-                        Can I contact you on WhatsApp?
-                    </span>
-
-                    <span>
-                        +
-                    </span>
-
-                </button>
-
-                <div class="faq-answer">
-
-                    <p>
-                        Yes. You can contact Beautex Style Avenue
-                        directly through WhatsApp.
+                        Yes, children's cuts are available.
                     </p>
 
                 </div>
@@ -947,106 +872,193 @@
 </section>
 
 
+<!-- =========================
+     OPENING HOURS
+========================= -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                WHEN TO VISIT
+            </span>
+
+            <h2>
+                Opening Hours
+            </h2>
+
+        </div>
+
+
+        <div class="hours-card">
+
+            <div class="hours-row">
+                <span>Monday – Friday</span>
+                <strong>08:00 – 19:00</strong>
+            </div>
+
+            <div class="hours-row">
+                <span>Saturday – Sunday</span>
+                <strong>07:00 – 17:00</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     LOCATION
+========================= -->
+
+<section id="location" class="section section-dark">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                FIND US
+            </span>
+
+            <h2>
+                Our Location
+            </h2>
+
+            <p>
+                106 Hennie Alberts, Brackenhurst Ext 2
+            </p>
+
+        </div>
+
+
+        <div class="map-container">
+
+            <iframe
+                src="https://www.google.com/maps?q=106+Hennie+Alberts,+Brackenhurst+Ext+2,+Alberton,+South+Africa&output=embed"
+                width="100%"
+                height="450"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Beautex Style Avenue location"
+            ></iframe>
+
+        </div>
+
+    </div>
+
+</section>
+
 
 <!-- =========================
      BOOKING
 ========================= -->
 
-<section
-    class="section booking-section"
-    id="booking"
->
+<section id="booking" class="section">
 
-    <div class="container booking-grid">
+    <div class="container">
 
+        <div class="section-heading">
 
-        <div class="booking-info">
-
-            <p class="section-label">
+            <span class="section-label">
                 BOOK WITH US
-            </p>
+            </span>
 
             <h2>
                 Make an Appointment
             </h2>
 
             <p>
-                Fill in the form and we'll take you directly
-                to WhatsApp to continue your booking.
+                Fill in the form below and we'll help arrange your appointment.
             </p>
-
-
-            <div class="booking-info-item">
-
-                <strong>
-                    Opening Hours
-                </strong>
-
-                <span>
-                    Weekdays: 08:00–19:00
-                </span>
-
-                <span>
-                    Weekends: 07:00–17:00
-                </span>
-
-            </div>
-
-
-            <div class="booking-info-item">
-
-                <strong>
-                    WhatsApp
-                </strong>
-
-                <span>
-                    084 046 2860
-                </span>
-
-            </div>
-
-
-            <div class="booking-info-item">
-
-                <strong>
-                    Location
-                </strong>
-
-                <span>
-                    106 Hennie Alberts,
-                    Brackenhurst Ext 2
-                </span>
-
-            </div>
 
         </div>
 
 
+        <div class="booking-wrapper">
 
-        <div class="booking-form-wrapper">
+
+            <div class="booking-info">
+
+                <h3>
+                    Book Your Visit
+                </h3>
+
+                <p>
+                    Choose your preferred service, date and time.
+                    Your booking request will be sent to us through WhatsApp.
+                </p>
+
+
+                <div class="booking-info-item">
+
+                    <strong>
+                        📍 Location
+                    </strong>
+
+                    <span>
+                        106 Hennie Alberts, Brackenhurst Ext 2
+                    </span>
+
+                </div>
+
+
+                <div class="booking-info-item">
+
+                    <strong>
+                        📞 Phone
+                    </strong>
+
+                    <span>
+                        084 046 2860
+                    </span>
+
+                </div>
+
+
+                <div class="booking-info-item">
+
+                    <strong>
+                        🕐 Opening Hours
+                    </strong>
+
+                    <span>
+                        Mon–Fri: 08:00–19:00<br>
+                        Sat–Sun: 07:00–17:00
+                    </span>
+
+                </div>
+
+            </div>
+
 
             <form
                 id="bookingForm"
                 class="booking-form"
             >
 
-
                 <div class="form-group">
 
                     <label for="name">
-                        Your Name
+                        Full Name
                     </label>
 
                     <input
                         type="text"
                         id="name"
                         name="name"
-                        placeholder="Enter your name"
+                        placeholder="Your name"
                         required
                     >
 
                 </div>
-
 
 
                 <div class="form-group">
@@ -1059,12 +1071,11 @@
                         type="tel"
                         id="phone"
                         name="phone"
-                        placeholder="Enter your phone number"
+                        placeholder="Your phone number"
                         required
                     >
 
                 </div>
-
 
 
                 <div class="form-group">
@@ -1083,83 +1094,83 @@
                             Select a service
                         </option>
 
-                        <option>
+                        <option value="Pixie Cut">
                             Pixie Cut
                         </option>
 
-                        <option>
+                        <option value="Pixie Cut & Style">
                             Pixie Cut & Style
                         </option>
 
-                        <option>
+                        <option value="Hairstyling">
                             Hairstyling
                         </option>
 
-                        <option>
+                        <option value="Blowdry">
                             Blowdry
                         </option>
 
-                        <option>
+                        <option value="Hair Colouring">
                             Hair Colouring
                         </option>
 
-                        <option>
+                        <option value="Hair Straightening">
                             Hair Straightening
                         </option>
 
-                        <option>
+                        <option value="Perms">
                             Perms
                         </option>
 
-                        <option>
+                        <option value="Curly Hair">
                             Curly Hair
                         </option>
 
-                        <option>
+                        <option value="Hair Hydration Treatments">
                             Hair Hydration Treatments
                         </option>
 
-                        <option>
+                        <option value="Hair Regrowth">
                             Hair Regrowth
                         </option>
 
-                        <option>
+                        <option value="Box Braids">
                             Box Braids
                         </option>
 
-                        <option>
+                        <option value="Braids">
                             Braids
                         </option>
 
-                        <option>
+                        <option value="Twist Braids">
                             Twist Braids
                         </option>
 
-                        <option>
+                        <option value="Dreadlocks">
                             Dreadlocks
                         </option>
 
-                        <option>
+                        <option value="All Fades">
                             All Fades
                         </option>
 
-                        <option>
+                        <option value="Wet Shave">
                             Wet Shave
                         </option>
 
-                        <option>
+                        <option value="Beard Trim">
                             Beard Trim
                         </option>
 
-                        <option>
+                        <option value="Children's Cuts">
                             Children's Cuts
                         </option>
 
-                        <option>
+                        <option value="Manicure">
                             Manicure
                         </option>
 
-                        <option>
+                        <option value="Pedicure">
                             Pedicure
                         </option>
 
@@ -1168,39 +1179,40 @@
                 </div>
 
 
+                <div class="form-row">
 
-                <div class="form-group">
+                    <div class="form-group">
 
-                    <label for="date">
-                        Preferred Date
-                    </label>
+                        <label for="date">
+                            Preferred Date
+                        </label>
 
-                    <input
-                        type="date"
-                        id="date"
-                        name="date"
-                        required
-                    >
+                        <input
+                            type="date"
+                            id="date"
+                            name="date"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="time">
+                            Preferred Time
+                        </label>
+
+                        <input
+                            type="time"
+                            id="time"
+                            name="time"
+                            required
+                        >
+
+                    </div>
 
                 </div>
-
-
-
-                <div class="form-group">
-
-                    <label for="time">
-                        Preferred Time
-                    </label>
-
-                    <input
-                        type="time"
-                        id="time"
-                        name="time"
-                        required
-                    >
-
-                </div>
-
 
 
                 <div class="form-group">
@@ -1212,20 +1224,29 @@
                     <textarea
                         id="message"
                         name="message"
-                        rows="4"
-                        placeholder="Anything else we should know?"
+                        rows="5"
+                        placeholder="Anything else you'd like us to know?"
                     ></textarea>
 
                 </div>
-
 
 
                 <button
                     type="submit"
                     class="btn btn-primary booking-submit"
                 >
-                    Continue to WhatsApp
+                    Send Booking Request
                 </button>
+
+
+                <a
+                    href="https://wa.me/27840462860"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="whatsapp-booking"
+                >
+                    Or book directly on WhatsApp
+                </a>
 
             </form>
 
@@ -1236,23 +1257,19 @@
 </section>
 
 
-
 <!-- =========================
      CONTACT
 ========================= -->
 
-<section
-    class="section"
-    id="contact"
->
+<section id="contact" class="section section-dark">
 
     <div class="container">
 
         <div class="section-heading">
 
-            <p class="section-label">
+            <span class="section-label">
                 GET IN TOUCH
-            </p>
+            </span>
 
             <h2>
                 Contact Beautex Style Avenue
@@ -1264,33 +1281,24 @@
         <div class="contact-grid">
 
 
-            <a
-                href="tel:+27840462860"
-                class="contact-card"
-            >
+            <div class="contact-card">
 
                 <div class="contact-icon">
-                    ☎
+                    📞
                 </div>
 
                 <h3>
-                    Call Us
+                    Phone
                 </h3>
 
-                <p>
+                <a href="tel:+27840462860">
                     084 046 2860
-                </p>
+                </a>
 
-            </a>
+            </div>
 
 
-
-            <a
-                href="https://wa.me/27840462860"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="contact-card"
-            >
+            <div class="contact-card">
 
                 <div class="contact-icon">
                     💬
@@ -1300,18 +1308,18 @@
                     WhatsApp
                 </h3>
 
-                <p>
-                    084 046 2860
-                </p>
+                <a
+                    href="https://wa.me/27840462860"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Chat on WhatsApp
+                </a>
 
-            </a>
+            </div>
 
 
-
-            <a
-                href="mailto:novelerbongani@gmail.com"
-                class="contact-card"
-            >
+            <div class="contact-card">
 
                 <div class="contact-icon">
                     ✉
@@ -1321,154 +1329,39 @@
                     Email
                 </h3>
 
-                <p>
+                <a href="mailto:novelerbongani@gmail.com">
                     novelerbongani@gmail.com
-                </p>
+                </a>
 
-            </a>
+            </div>
 
 
-
-            <a
-                href="https://web.facebook.com/p/Beautex-style-avenue-100032848765828/?_rdc=1&_rdr#"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="contact-card"
-            >
+            <div class="contact-card">
 
                 <div class="contact-icon">
-                    f
+                    📘
                 </div>
 
                 <h3>
                     Facebook
                 </h3>
 
-                <p>
-                    Visit our Facebook page
-                </p>
+                <a
+                    href="https://web.facebook.com/p/Beautex-style-avenue-100032848765828/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Visit our Facebook
+                </a>
 
-            </a>
+            </div>
+
 
         </div>
 
     </div>
 
 </section>
-
-
-
-<!-- =========================
-     MAP
-========================= -->
-
-<section class="map-section">
-
-    <iframe
-        src="https://www.google.com/maps?q=106+Hennie+Alberts,+Brackenhurst+Ext+2,+Alberton,+South+Africa&output=embed"
-        width="100%"
-        height="450"
-        style="border:0;"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-    ></iframe>
-
-</section>
-
-
-
-<!-- =========================
-     FINAL CTA
-========================= -->
-
-<section class="final-cta">
-
-    <div class="container">
-
-        <p class="section-label">
-            BEAUTEX STYLE AVENUE
-        </p>
-
-        <h2>
-            Live it.
-        </h2>
-
-        <p>
-            Your next look starts here.
-        </p>
-
-        <a
-            href="#booking"
-            class="btn btn-primary"
-        >
-            Book Now
-        </a>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================
-     LIGHTBOX
-========================= -->
-
-<div
-    class="lightbox"
-    id="lightbox"
-    aria-hidden="true"
->
-
-    <button
-        class="lightbox-close"
-        id="lightboxClose"
-        aria-label="Close image"
-    >
-        ×
-    </button>
-
-
-    <button
-        class="lightbox-prev"
-        id="lightboxPrev"
-        aria-label="Previous image"
-    >
-        ‹
-    </button>
-
-
-    <img
-        id="lightboxImage"
-        src=""
-        alt="Beautex Style Avenue gallery image"
-    >
-
-
-    <button
-        class="lightbox-next"
-        id="lightboxNext"
-        aria-label="Next image"
-    >
-        ›
-    </button>
-
-</div>
-
-
-
-<!-- =========================
-     BACK TO TOP
-========================= -->
-
-<button
-    id="backToTop"
-    aria-label="Back to top"
->
-    ↑
-</button>
-
 
 
 <!-- =========================
@@ -1486,6 +1379,18 @@
 </a>
 
 
+<!-- =========================
+     BACK TO TOP
+========================= -->
+
+<button
+    id="backToTop"
+    class="back-to-top"
+    aria-label="Back to top"
+>
+    ↑
+</button>
+
 
 <!-- =========================
      FOOTER
@@ -1493,7 +1398,7 @@
 
 <footer class="footer">
 
-    <div class="container footer-grid">
+    <div class="container footer-content">
 
 
         <div class="footer-brand">
@@ -1515,64 +1420,52 @@
         </div>
 
 
-
         <div class="footer-links">
 
             <h3>
                 Quick Links
             </h3>
 
-            <a href="#home">
-                Home
-            </a>
-
-            <a href="#services">
-                Services
-            </a>
-
-            <a href="#gallery">
-                Gallery
-            </a>
-
-            <a href="#booking">
-                Booking
-            </a>
-
-            <a href="#contact">
-                Contact
-            </a>
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#about">About</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#faq">FAQ</a>
+            <a href="#booking">Book Now</a>
 
         </div>
 
 
-
-        <div class="footer-links">
+        <div class="footer-contact">
 
             <h3>
-                Connect
+                Contact
             </h3>
 
-            <a
-                href="https://wa.me/27840462860"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                WhatsApp
-            </a>
+            <p>
+                106 Hennie Alberts<br>
+                Brackenhurst Ext 2
+            </p>
+
+            <p>
+                084 046 2860
+            </p>
+
+            <p>
+                novelerbongani@gmail.com
+            </p>
 
             <a
-                href="https://web.facebook.com/p/Beautex-style-avenue-100032848765828/?_rdc=1&_rdr#"
+                href="https://web.facebook.com/p/Beautex-style-avenue-100032848765828/"
                 target="_blank"
                 rel="noopener noreferrer"
             >
                 Facebook
             </a>
 
-            <a href="mailto:novelerbongani@gmail.com">
-                Email
-            </a>
-
         </div>
+
 
     </div>
 
@@ -1588,7 +1481,7 @@
 </footer>
 
 
-
+<!-- JavaScript -->
 <script src="script.js"></script>
 
 </body>
