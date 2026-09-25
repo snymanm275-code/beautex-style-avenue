@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://YOUR-DOMAIN-HERE/sitemap.xml
+Sitemap: https://snymanm275-code.github.io/beautex-style-avenue/sitemap.xml
