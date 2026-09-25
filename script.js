@@ -1,898 +1,356 @@
-/* ========================================
-   BEAUTEX STYLE AVENUE
-   JAVASCRIPT
-======================================== */
+// =========================
+// MOBILE MENU
+// =========================
+
+const menuToggle = document.getElementById("menuToggle");
+const navMenu = document.getElementById("navMenu");
+
+if (menuToggle && navMenu) {
+    menuToggle.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+    });
+
+    navMenu.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+            navMenu.classList.remove("active");
+        });
+    });
+}
 
 
-/* ========================================
-   MOBILE MENU
-======================================== */
+// =========================
+// GALLERY LIGHTBOX
+// =========================
 
-const mobileMenuButton =
-    document.getElementById("mobileMenuButton");
+const galleryItems = document.querySelectorAll(".gallery-item");
+const lightbox = document.getElementById("lightbox");
+const lightboxImage = document.getElementById("lightboxImage");
+const lightboxClose = document.getElementById("lightboxClose");
+const lightboxPrev = document.getElementById("lightboxPrev");
+const lightboxNext = document.getElementById("lightboxNext");
 
-const mainNavigation =
-    document.getElementById("mainNavigation");
+let currentImageIndex = 0;
 
+const galleryImages = Array.from(galleryItems).map(item => {
+    const img = item.querySelector("img");
+    return img ? img.src : "";
+});
 
-if (mobileMenuButton && mainNavigation) {
+function openLightbox(index) {
+    if (!lightbox || !lightboxImage || !galleryImages[index]) return;
 
-    mobileMenuButton.addEventListener(
-        "click",
-        function () {
+    currentImageIndex = index;
+    lightboxImage.src = galleryImages[currentImageIndex];
 
-            mainNavigation.classList.toggle(
-                "mobile-menu-open"
-            );
+    lightbox.classList.add("active");
+    lightbox.setAttribute("aria-hidden", "false");
 
+    document.body.style.overflow = "hidden";
+}
 
-            if (
-                mainNavigation.classList.contains(
-                    "mobile-menu-open"
-                )
-            ) {
+function closeLightbox() {
+    if (!lightbox) return;
 
-                mobileMenuButton.innerHTML = "✕";
+    lightbox.classList.remove("active");
+    lightbox.setAttribute("aria-hidden", "true");
 
-            } else {
+    document.body.style.overflow = "";
+}
 
-                mobileMenuButton.innerHTML = "☰";
+function showPreviousImage() {
+    if (!galleryImages.length) return;
 
-            }
+    currentImageIndex =
+        (currentImageIndex - 1 + galleryImages.length) %
+        galleryImages.length;
 
+    lightboxImage.src = galleryImages[currentImageIndex];
+}
+
+function showNextImage() {
+    if (!galleryImages.length) return;
+
+    currentImageIndex =
+        (currentImageIndex + 1) %
+        galleryImages.length;
+
+    lightboxImage.src = galleryImages[currentImageIndex];
+}
+
+galleryItems.forEach((item, index) => {
+    item.addEventListener("click", () => {
+        openLightbox(index);
+    });
+});
+
+if (lightboxClose) {
+    lightboxClose.addEventListener("click", closeLightbox);
+}
+
+if (lightboxPrev) {
+    lightboxPrev.addEventListener("click", showPreviousImage);
+}
+
+if (lightboxNext) {
+    lightboxNext.addEventListener("click", showNextImage);
+}
+
+if (lightbox) {
+    lightbox.addEventListener("click", event => {
+        if (event.target === lightbox) {
+            closeLightbox();
         }
-    );
-
-
-    const navigationLinks =
-        mainNavigation.querySelectorAll("a");
-
-
-    navigationLinks.forEach(
-        function (link) {
-
-            link.addEventListener(
-                "click",
-                function () {
-
-                    mainNavigation.classList.remove(
-                        "mobile-menu-open"
-                    );
-
-                    mobileMenuButton.innerHTML =
-                        "☰";
-
-                }
-            );
-
-        }
-    );
-
+    });
 }
 
+document.addEventListener("keydown", event => {
+    if (!lightbox || !lightbox.classList.contains("active")) return;
 
-
-/* ========================================
-   GALLERY LIGHTBOX
-======================================== */
-
-const galleryImages =
-    document.querySelectorAll(
-        ".gallery-item img"
-    );
-
-
-const photoLightbox =
-    document.getElementById(
-        "photoLightbox"
-    );
-
-
-const lightboxImage =
-    document.getElementById(
-        "lightboxImage"
-    );
-
-
-const closeLightbox =
-    document.getElementById(
-        "closeLightbox"
-    );
-
-
-const previousPhoto =
-    document.getElementById(
-        "prevPhoto"
-    );
-
-
-const nextPhoto =
-    document.getElementById(
-        "nextPhoto"
-    );
-
-
-let currentPhotoIndex = 0;
-
-
-const photoSources = [];
-
-
-galleryImages.forEach(
-    function (image, index) {
-
-        photoSources.push(
-            image.src
-        );
-
-
-        image.parentElement.addEventListener(
-            "click",
-            function () {
-
-                currentPhotoIndex =
-                    index;
-
-                openLightbox();
-
-            }
-        );
-
-    }
-);
-
-
-function openLightbox() {
-
-    if (
-        !photoLightbox ||
-        !lightboxImage
-    ) {
-
-        return;
-
+    if (event.key === "Escape") {
+        closeLightbox();
     }
 
-
-    lightboxImage.src =
-        photoSources[
-            currentPhotoIndex
-        ];
-
-
-    photoLightbox.classList.add(
-        "active"
-    );
-
-
-    document.body.style.overflow =
-        "hidden";
-
-}
-
-
-function closePhotoLightbox() {
-
-    if (!photoLightbox) {
-
-        return;
-
+    if (event.key === "ArrowLeft") {
+        showPreviousImage();
     }
 
-
-    photoLightbox.classList.remove(
-        "active"
-    );
-
-
-    document.body.style.overflow =
-        "";
-
-}
+    if (event.key === "ArrowRight") {
+        showNextImage();
+    }
+});
 
 
-function showPreviousPhoto() {
+// =========================
+// BACK TO TOP
+// =========================
 
-    if (
-        photoSources.length === 0
-    ) {
+const backToTop = document.getElementById("backToTop");
 
-        return;
+window.addEventListener("scroll", () => {
 
+    if (!backToTop) return;
+
+    if (window.scrollY > 500) {
+        backToTop.classList.add("show");
+    } else {
+        backToTop.classList.remove("show");
     }
 
-
-    currentPhotoIndex--;
-
-
-    if (
-        currentPhotoIndex < 0
-    ) {
-
-        currentPhotoIndex =
-            photoSources.length - 1;
-
-    }
-
-
-    lightboxImage.src =
-        photoSources[
-            currentPhotoIndex
-        ];
-
-}
-
-
-function showNextPhoto() {
-
-    if (
-        photoSources.length === 0
-    ) {
-
-        return;
-
-    }
-
-
-    currentPhotoIndex++;
-
-
-    if (
-        currentPhotoIndex >=
-        photoSources.length
-    ) {
-
-        currentPhotoIndex = 0;
-
-    }
-
-
-    lightboxImage.src =
-        photoSources[
-            currentPhotoIndex
-        ];
-
-}
-
-
-if (closeLightbox) {
-
-    closeLightbox.addEventListener(
-        "click",
-        closePhotoLightbox
-    );
-
-}
-
-
-if (previousPhoto) {
-
-    previousPhoto.addEventListener(
-        "click",
-        showPreviousPhoto
-    );
-
-}
-
-
-if (nextPhoto) {
-
-    nextPhoto.addEventListener(
-        "click",
-        showNextPhoto
-    );
-
-}
-
-
-if (photoLightbox) {
-
-    photoLightbox.addEventListener(
-        "click",
-        function (event) {
-
-            if (
-                event.target ===
-                photoLightbox
-            ) {
-
-                closePhotoLightbox();
-
-            }
-
-        }
-    );
-
-}
-
-
-/* Keyboard controls */
-
-document.addEventListener(
-    "keydown",
-    function (event) {
-
-        if (
-            !photoLightbox ||
-            !photoLightbox.classList.contains(
-                "active"
-            )
-        ) {
-
-            return;
-
-        }
-
-
-        if (
-            event.key ===
-            "Escape"
-        ) {
-
-            closePhotoLightbox();
-
-        }
-
-
-        if (
-            event.key ===
-            "ArrowLeft"
-        ) {
-
-            showPreviousPhoto();
-
-        }
-
-
-        if (
-            event.key ===
-            "ArrowRight"
-        ) {
-
-            showNextPhoto();
-
-        }
-
-    }
-);
-
-
-
-/* ========================================
-   BACK TO TOP
-======================================== */
-
-const backToTop =
-    document.getElementById(
-        "backToTop"
-    );
-
+});
 
 if (backToTop) {
-
-    window.addEventListener(
-        "scroll",
-        function () {
-
-            if (
-                window.scrollY > 500
-            ) {
-
-                backToTop.classList.add(
-                    "show"
-                );
-
-            } else {
-
-                backToTop.classList.remove(
-                    "show"
-                );
-
-            }
-
-        }
-    );
+    backToTop.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+}
 
 
-    backToTop.addEventListener(
-        "click",
-        function () {
+// =========================
+// SCROLL ANIMATIONS
+// =========================
 
-            window.scrollTo({
+const revealElements = document.querySelectorAll(
+    ".service-card, .why-card, .gallery-item, .contact-card, .booking-info-item, .rating-card"
+);
 
-                top: 0,
+if ("IntersectionObserver" in window) {
 
-                behavior: "smooth"
+    const revealObserver = new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("reveal");
+                    entry.target.classList.add("visible");
+
+                    revealObserver.unobserve(entry.target);
+
+                }
 
             });
 
+        },
+        {
+            threshold: 0.12
         }
     );
+
+    revealElements.forEach(element => {
+        revealObserver.observe(element);
+    });
 
 }
 
 
+// =========================
+// BOOKING FORM
+// =========================
 
-/* ========================================
-   SCROLL ANIMATIONS
-======================================== */
-
-const animatedElements =
-    document.querySelectorAll(
-        ".service-card, .why-card, .gallery-item, .contact-card, .reviews-premium-card, .booking-container, .faq-item"
-    );
+const bookingForm = document.getElementById("bookingForm");
+const dateInput = document.getElementById("date");
 
 
-if (
-    "IntersectionObserver"
-    in window
-) {
+// Prevent selecting dates in the past
+if (dateInput) {
 
-    const observer =
-        new IntersectionObserver(
+    const today = new Date();
 
-            function (entries) {
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, "0");
+    const day = String(today.getDate()).padStart(2, "0");
 
-                entries.forEach(
-                    function (entry) {
-
-                        if (
-                            entry.isIntersecting
-                        ) {
-
-                            entry.target.classList.add(
-                                "visible"
-                            );
-
-
-                            observer.unobserve(
-                                entry.target
-                            );
-
-                        }
-
-                    }
-                );
-
-            },
-
-            {
-                threshold: 0.12
-            }
-
-        );
-
-
-    animatedElements.forEach(
-        function (element) {
-
-            element.classList.add(
-                "fade-in"
-            );
-
-
-            observer.observe(
-                element
-            );
-
-        }
-    );
-
+    dateInput.min = `${year}-${month}-${day}`;
 }
 
 
-
-/* ========================================
-   BOOKING FORM
-======================================== */
-
-const bookingForm =
-    document.getElementById(
-        "bookingForm"
-    );
-
-
+// Booking form → WhatsApp
 if (bookingForm) {
 
-    bookingForm.addEventListener(
-        "submit",
-        function (event) {
+    bookingForm.addEventListener("submit", function(event) {
 
-            event.preventDefault();
+        event.preventDefault();
+
+        const nameElement = document.getElementById("name");
+        const phoneElement = document.getElementById("phone");
+        const serviceElement = document.getElementById("service");
+        const dateElement = document.getElementById("date");
+        const timeElement = document.getElementById("time");
+        const messageElement = document.getElementById("message");
+
+        const name = nameElement ? nameElement.value.trim() : "";
+        const phone = phoneElement ? phoneElement.value.trim() : "";
+        const service = serviceElement ? serviceElement.value : "";
+        const date = dateElement ? dateElement.value : "";
+        const time = timeElement ? timeElement.value : "";
+        const message = messageElement ? messageElement.value.trim() : "";
+
+        if (!name || !phone || !service || !date || !time) {
+
+            alert("Please complete all required booking fields.");
+
+            return;
+        }
+
+        const formattedMessage =
+`Hello Beautex Style Avenue!
+
+I would like to make an appointment.
+
+Name: ${name}
+Phone: ${phone}
+Service: ${service}
+Preferred Date: ${date}
+Preferred Time: ${time}
+
+Additional Notes:
+${message || "None"}
+
+Thank you!`;
+
+        const whatsappURL =
+            `https://wa.me/27840462860?text=${encodeURIComponent(formattedMessage)}`;
+
+        window.open(whatsappURL, "_blank");
+
+    });
+
+}
 
 
-            const customerName =
-                document.getElementById(
-                    "customerName"
-                ).value.trim();
+// =========================
+// ACTIVE NAVIGATION
+// =========================
+
+const sections = document.querySelectorAll("section[id]");
+const navLinks = document.querySelectorAll(".nav a[href^='#']");
+
+window.addEventListener("scroll", () => {
+
+    let current = "";
+
+    sections.forEach(section => {
+
+        const sectionTop = section.offsetTop - 150;
+        const sectionHeight = section.offsetHeight;
+
+        if (
+            window.scrollY >= sectionTop &&
+            window.scrollY < sectionTop + sectionHeight
+        ) {
+            current = section.getAttribute("id");
+        }
+
+    });
+
+    navLinks.forEach(link => {
+
+        link.classList.remove("active");
+
+        if (
+            link.getAttribute("href") === `#${current}`
+        ) {
+            link.classList.add("active");
+        }
+
+    });
+
+});
 
 
-            const customerPhone =
-                document.getElementById(
-                    "customerPhone"
-                ).value.trim();
+// =========================
+// FAQ ACCORDION
+// =========================
+
+const faqQuestions =
+    document.querySelectorAll(".faq-question");
+
+faqQuestions.forEach(question => {
+
+    question.addEventListener("click", function() {
+
+        const faqItem = this.closest(".faq-item");
+
+        if (!faqItem) return;
+
+        const answer =
+            faqItem.querySelector(".faq-answer");
+
+        if (!answer) return;
+
+        const isActive =
+            faqItem.classList.contains("active");
 
 
-            const service =
-                document.getElementById(
-                    "service"
-                ).value;
+        // Close every FAQ
+        document.querySelectorAll(".faq-item").forEach(item => {
 
+            item.classList.remove("active");
 
-            const bookingDate =
-                document.getElementById(
-                    "bookingDate"
-                ).value;
+            const itemAnswer =
+                item.querySelector(".faq-answer");
 
-
-            const bookingTime =
-                document.getElementById(
-                    "bookingTime"
-                ).value;
-
-
-            const bookingMessage =
-                document.getElementById(
-                    "bookingMessage"
-                ).value.trim();
-
-
-
-            if (
-                !customerName ||
-                !customerPhone ||
-                !service ||
-                !bookingDate ||
-                !bookingTime
-            ) {
-
-                alert(
-                    "Please complete all required booking fields."
-                );
-
-                return;
-
+            if (itemAnswer) {
+                itemAnswer.style.maxHeight = null;
             }
 
+        });
 
 
-            /* Format date */
+        // Open clicked FAQ
+        if (!isActive) {
 
-            let formattedDate =
-                bookingDate;
+            faqItem.classList.add("active");
 
-
-            if (bookingDate) {
-
-                const date =
-                    new Date(
-                        bookingDate +
-                        "T00:00:00"
-                    );
-
-
-                formattedDate =
-                    date.toLocaleDateString(
-                        "en-ZA",
-                        {
-                            weekday:
-                                "long",
-
-                            year:
-                                "numeric",
-
-                            month:
-                                "long",
-
-                            day:
-                                "numeric"
-                        }
-                    );
-
-            }
-
-
-
-            /* Format time */
-
-            let formattedTime =
-                bookingTime;
-
-
-            if (bookingTime) {
-
-                const timeParts =
-                    bookingTime.split(":");
-
-
-                let hours =
-                    parseInt(
-                        timeParts[0],
-                        10
-                    );
-
-
-                const minutes =
-                    timeParts[1];
-
-
-                const period =
-                    hours >= 12
-                        ? "PM"
-                        : "AM";
-
-
-                hours =
-                    hours % 12 || 12;
-
-
-                formattedTime =
-                    hours +
-                    ":" +
-                    minutes +
-                    " " +
-                    period;
-
-            }
-
-
-
-            /* Create WhatsApp message */
-
-            let whatsappMessage =
-                "Hi Beautex Style Avenue! 👋\n\n" +
-
-                "I would like to make a booking.\n\n" +
-
-                "*Booking Details*\n" +
-
-                "Name: " +
-                customerName +
-                "\n" +
-
-                "Phone: " +
-                customerPhone +
-                "\n" +
-
-                "Service: " +
-                service +
-                "\n" +
-
-                "Preferred Date: " +
-                formattedDate +
-                "\n" +
-
-                "Preferred Time: " +
-                formattedTime;
-
-
-
-            if (bookingMessage) {
-
-                whatsappMessage +=
-                    "\n\nAdditional Message: " +
-                    bookingMessage;
-
-            }
-
-
-            whatsappMessage +=
-                "\n\nThank you!";
-
-
-            const whatsappNumber =
-                "27840462860";
-
-
-            const whatsappURL =
-                "https://wa.me/" +
-                whatsappNumber +
-                "?text=" +
-                encodeURIComponent(
-                    whatsappMessage
-                );
-
-
-            window.open(
-                whatsappURL,
-                "_blank"
-            );
+            answer.style.maxHeight =
+                answer.scrollHeight + "px";
 
         }
-    );
 
-}
+    });
 
-
-
-/* ========================================
-   PREVENT PAST DATES
-======================================== */
-
-const bookingDateInput =
-    document.getElementById(
-        "bookingDate"
-    );
-
-
-if (bookingDateInput) {
-
-    const today =
-        new Date();
-
-
-    const year =
-        today.getFullYear();
-
-
-    const month =
-        String(
-            today.getMonth() + 1
-        ).padStart(
-            2,
-            "0"
-        );
-
-
-    const day =
-        String(
-            today.getDate()
-        ).padStart(
-            2,
-            "0"
-        );
-
-
-    const todayFormatted =
-        year +
-        "-" +
-        month +
-        "-" +
-        day;
-
-
-    bookingDateInput.min =
-        todayFormatted;
-
-}
-
-
-
-/* ========================================
-   ACTIVE NAVIGATION
-======================================== */
-
-const sections =
-    document.querySelectorAll(
-        "section[id]"
-    );
-
-
-const navLinks =
-    document.querySelectorAll(
-        ".navbar nav a"
-    );
-
-
-window.addEventListener(
-    "scroll",
-    function () {
-
-        let currentSection = "";
-
-
-        sections.forEach(
-            function (section) {
-
-                const sectionTop =
-                    section.offsetTop -
-                    120;
-
-
-                const sectionHeight =
-                    section.offsetHeight;
-
-
-                if (
-                    window.scrollY >=
-                    sectionTop
-                ) {
-
-                    currentSection =
-                        section.getAttribute(
-                            "id"
-                        );
-
-                }
-
-            }
-        );
-
-
-        navLinks.forEach(
-            function (link) {
-
-                link.classList.remove(
-                    "active"
-                );
-
-
-                const href =
-                    link.getAttribute(
-                        "href"
-                    );
-
-
-                if (
-                    href ===
-                    "#" +
-                    currentSection
-                ) {
-
-                    link.classList.add(
-                        "active"
-                    );
-
-                }
-
-            }
-        );
-
-    }
-);
-
-
-
-/* ========================================
-   FAQ ACCORDION
-======================================== */
-
-const faqItems =
-    document.querySelectorAll(
-        ".faq-item"
-    );
-
-
-faqItems.forEach(
-    function (item) {
-
-        const question =
-            item.querySelector(
-                ".faq-question"
-            );
-
-
-        question.addEventListener(
-            "click",
-            function () {
-
-                const isActive =
-                    item.classList.contains(
-                        "active"
-                    );
-
-
-                faqItems.forEach(
-                    function (otherItem) {
-
-                        otherItem.classList.remove(
-                            "active"
-                        );
-
-                    }
-                );
-
-
-                if (!isActive) {
-
-                    item.classList.add(
-                        "active"
-                    );
-
-                }
-
-            }
-        );
-
-    }
-);
+});
