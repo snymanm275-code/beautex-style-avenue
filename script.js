@@ -23,6 +23,7 @@ if (menuToggle && navMenu) {
 // =========================
 
 const galleryItems = document.querySelectorAll(".gallery-item");
+
 const lightbox = document.getElementById("lightbox");
 const lightboxImage = document.getElementById("lightboxImage");
 const lightboxClose = document.getElementById("lightboxClose");
@@ -36,87 +37,169 @@ const galleryImages = Array.from(galleryItems).map(item => {
     return img ? img.src : "";
 });
 
+
 function openLightbox(index) {
-    if (!lightbox || !lightboxImage || !galleryImages[index]) return;
+
+    if (!lightbox || !lightboxImage) return;
+
+    if (!galleryImages[index]) return;
 
     currentImageIndex = index;
+
     lightboxImage.src = galleryImages[currentImageIndex];
 
     lightbox.classList.add("active");
+
     lightbox.setAttribute("aria-hidden", "false");
 
     document.body.style.overflow = "hidden";
 }
 
+
 function closeLightbox() {
+
     if (!lightbox) return;
 
     lightbox.classList.remove("active");
+
     lightbox.setAttribute("aria-hidden", "true");
 
     document.body.style.overflow = "";
 }
 
+
 function showPreviousImage() {
+
     if (!galleryImages.length) return;
 
     currentImageIndex =
         (currentImageIndex - 1 + galleryImages.length) %
         galleryImages.length;
 
-    lightboxImage.src = galleryImages[currentImageIndex];
+    lightboxImage.src =
+        galleryImages[currentImageIndex];
 }
 
+
 function showNextImage() {
+
     if (!galleryImages.length) return;
 
     currentImageIndex =
         (currentImageIndex + 1) %
         galleryImages.length;
 
-    lightboxImage.src = galleryImages[currentImageIndex];
+    lightboxImage.src =
+        galleryImages[currentImageIndex];
 }
+
+
+// Gallery clicks
 
 galleryItems.forEach((item, index) => {
-    item.addEventListener("click", () => {
+
+    item.addEventListener("click", function(event) {
+
+        event.preventDefault();
+
         openLightbox(index);
+
     });
+
 });
 
+
+// Close button
+
 if (lightboxClose) {
-    lightboxClose.addEventListener("click", closeLightbox);
+
+    lightboxClose.addEventListener("click", function(event) {
+
+        event.preventDefault();
+
+        closeLightbox();
+
+    });
+
 }
+
+
+// Previous
 
 if (lightboxPrev) {
-    lightboxPrev.addEventListener("click", showPreviousImage);
+
+    lightboxPrev.addEventListener("click", function(event) {
+
+        event.preventDefault();
+
+        showPreviousImage();
+
+    });
+
 }
+
+
+// Next
 
 if (lightboxNext) {
-    lightboxNext.addEventListener("click", showNextImage);
+
+    lightboxNext.addEventListener("click", function(event) {
+
+        event.preventDefault();
+
+        showNextImage();
+
+    });
+
 }
+
+
+// Click outside image
 
 if (lightbox) {
-    lightbox.addEventListener("click", event => {
+
+    lightbox.addEventListener("click", function(event) {
+
         if (event.target === lightbox) {
+
             closeLightbox();
+
         }
+
     });
+
 }
 
-document.addEventListener("keydown", event => {
-    if (!lightbox || !lightbox.classList.contains("active")) return;
+
+// Keyboard controls
+
+document.addEventListener("keydown", function(event) {
+
+    if (!lightbox) return;
+
+    if (!lightbox.classList.contains("active")) return;
+
 
     if (event.key === "Escape") {
+
         closeLightbox();
+
     }
+
 
     if (event.key === "ArrowLeft") {
+
         showPreviousImage();
+
     }
 
+
     if (event.key === "ArrowRight") {
+
         showNextImage();
+
     }
+
 });
 
 
@@ -126,25 +209,34 @@ document.addEventListener("keydown", event => {
 
 const backToTop = document.getElementById("backToTop");
 
-window.addEventListener("scroll", () => {
+window.addEventListener("scroll", function() {
 
     if (!backToTop) return;
 
     if (window.scrollY > 500) {
+
         backToTop.classList.add("show");
+
     } else {
+
         backToTop.classList.remove("show");
+
     }
 
 });
 
+
 if (backToTop) {
-    backToTop.addEventListener("click", () => {
+
+    backToTop.addEventListener("click", function() {
+
         window.scrollTo({
             top: 0,
             behavior: "smooth"
         });
+
     });
+
 }
 
 
@@ -156,32 +248,40 @@ const revealElements = document.querySelectorAll(
     ".service-card, .why-card, .gallery-item, .contact-card, .booking-info-item, .rating-card"
 );
 
+
 if ("IntersectionObserver" in window) {
 
-    const revealObserver = new IntersectionObserver(
-        entries => {
+    const revealObserver =
+        new IntersectionObserver(
+            entries => {
 
-            entries.forEach(entry => {
+                entries.forEach(entry => {
 
-                if (entry.isIntersecting) {
+                    if (entry.isIntersecting) {
 
-                    entry.target.classList.add("reveal");
-                    entry.target.classList.add("visible");
+                        entry.target.classList.add("reveal");
 
-                    revealObserver.unobserve(entry.target);
+                        entry.target.classList.add("visible");
 
-                }
+                        revealObserver.unobserve(
+                            entry.target
+                        );
 
-            });
+                    }
 
-        },
-        {
-            threshold: 0.12
-        }
-    );
+                });
+
+            },
+            {
+                threshold: 0.12
+            }
+        );
+
 
     revealElements.forEach(element => {
+
         revealObserver.observe(element);
+
     });
 
 }
@@ -191,52 +291,100 @@ if ("IntersectionObserver" in window) {
 // BOOKING FORM
 // =========================
 
-const bookingForm = document.getElementById("bookingForm");
-const dateInput = document.getElementById("date");
+const bookingForm =
+    document.getElementById("bookingForm");
+
+const dateInput =
+    document.getElementById("date");
 
 
-// Prevent selecting dates in the past
 if (dateInput) {
 
     const today = new Date();
 
-    const year = today.getFullYear();
-    const month = String(today.getMonth() + 1).padStart(2, "0");
-    const day = String(today.getDate()).padStart(2, "0");
+    const year =
+        today.getFullYear();
 
-    dateInput.min = `${year}-${month}-${day}`;
+    const month =
+        String(today.getMonth() + 1)
+        .padStart(2, "0");
+
+    const day =
+        String(today.getDate())
+        .padStart(2, "0");
+
+    dateInput.min =
+        `${year}-${month}-${day}`;
+
 }
 
 
-// Booking form → WhatsApp
 if (bookingForm) {
 
-    bookingForm.addEventListener("submit", function(event) {
+    bookingForm.addEventListener(
+        "submit",
+        function(event) {
 
-        event.preventDefault();
+            event.preventDefault();
 
-        const nameElement = document.getElementById("name");
-        const phoneElement = document.getElementById("phone");
-        const serviceElement = document.getElementById("service");
-        const dateElement = document.getElementById("date");
-        const timeElement = document.getElementById("time");
-        const messageElement = document.getElementById("message");
 
-        const name = nameElement ? nameElement.value.trim() : "";
-        const phone = phoneElement ? phoneElement.value.trim() : "";
-        const service = serviceElement ? serviceElement.value : "";
-        const date = dateElement ? dateElement.value : "";
-        const time = timeElement ? timeElement.value : "";
-        const message = messageElement ? messageElement.value.trim() : "";
+            const name =
+                document
+                    .getElementById("name")
+                    .value
+                    .trim();
 
-        if (!name || !phone || !service || !date || !time) {
 
-            alert("Please complete all required booking fields.");
+            const phone =
+                document
+                    .getElementById("phone")
+                    .value
+                    .trim();
 
-            return;
-        }
 
-        const formattedMessage =
+            const service =
+                document
+                    .getElementById("service")
+                    .value;
+
+
+            const date =
+                document
+                    .getElementById("date")
+                    .value;
+
+
+            const time =
+                document
+                    .getElementById("time")
+                    .value;
+
+
+            const message =
+                document
+                    .getElementById("message")
+                    .value
+                    .trim();
+
+
+            if (
+                !name ||
+                !phone ||
+                !service ||
+                !date ||
+                !time
+            ) {
+
+                alert(
+                    "Please complete all required booking fields."
+                );
+
+                return;
+
+            }
+
+
+            const formattedMessage =
 `Hello Beautex Style Avenue!
 
 I would like to make an appointment.
@@ -252,12 +400,18 @@ ${message || "None"}
 
 Thank you!`;
 
-        const whatsappURL =
-            `https://wa.me/27840462860?text=${encodeURIComponent(formattedMessage)}`;
 
-        window.open(whatsappURL, "_blank");
+            const whatsappURL =
+                `https://wa.me/27840462860?text=${encodeURIComponent(formattedMessage)}`;
 
-    });
+
+            // Navigate directly to WhatsApp
+            // instead of opening a popup.
+            window.location.href =
+                whatsappURL;
+
+        }
+    );
 
 }
 
@@ -266,35 +420,55 @@ Thank you!`;
 // ACTIVE NAVIGATION
 // =========================
 
-const sections = document.querySelectorAll("section[id]");
-const navLinks = document.querySelectorAll(".nav a[href^='#']");
+const sections =
+    document.querySelectorAll("section[id]");
 
-window.addEventListener("scroll", () => {
+const navLinks =
+    document.querySelectorAll(
+        ".nav a[href^='#']"
+    );
+
+
+window.addEventListener("scroll", function() {
 
     let current = "";
 
+
     sections.forEach(section => {
 
-        const sectionTop = section.offsetTop - 150;
-        const sectionHeight = section.offsetHeight;
+        const sectionTop =
+            section.offsetTop - 150;
+
+        const sectionHeight =
+            section.offsetHeight;
+
 
         if (
             window.scrollY >= sectionTop &&
-            window.scrollY < sectionTop + sectionHeight
+            window.scrollY <
+            sectionTop + sectionHeight
         ) {
-            current = section.getAttribute("id");
+
+            current =
+                section.getAttribute("id");
+
         }
 
     });
+
 
     navLinks.forEach(link => {
 
         link.classList.remove("active");
 
+
         if (
-            link.getAttribute("href") === `#${current}`
+            link.getAttribute("href") ===
+            `#${current}`
         ) {
+
             link.classList.add("active");
+
         }
 
     });
@@ -307,50 +481,94 @@ window.addEventListener("scroll", () => {
 // =========================
 
 const faqQuestions =
-    document.querySelectorAll(".faq-question");
+    document.querySelectorAll(
+        ".faq-question"
+    );
+
 
 faqQuestions.forEach(question => {
 
-    question.addEventListener("click", function() {
-
-        const faqItem = this.closest(".faq-item");
-
-        if (!faqItem) return;
-
-        const answer =
-            faqItem.querySelector(".faq-answer");
-
-        if (!answer) return;
-
-        const isActive =
-            faqItem.classList.contains("active");
+    // Make sure FAQ buttons never
+    // accidentally behave like submit buttons.
+    question.setAttribute(
+        "type",
+        "button"
+    );
 
 
-        // Close every FAQ
-        document.querySelectorAll(".faq-item").forEach(item => {
+    question.addEventListener(
+        "click",
+        function(event) {
 
-            item.classList.remove("active");
+            event.preventDefault();
 
-            const itemAnswer =
-                item.querySelector(".faq-answer");
+            event.stopPropagation();
 
-            if (itemAnswer) {
-                itemAnswer.style.maxHeight = null;
+
+            const faqItem =
+                this.closest(".faq-item");
+
+
+            if (!faqItem) return;
+
+
+            const answer =
+                faqItem.querySelector(
+                    ".faq-answer"
+                );
+
+
+            if (!answer) return;
+
+
+            const isActive =
+                faqItem.classList.contains(
+                    "active"
+                );
+
+
+            // Close all FAQs
+
+            document
+                .querySelectorAll(".faq-item")
+                .forEach(item => {
+
+                    item.classList.remove(
+                        "active"
+                    );
+
+
+                    const itemAnswer =
+                        item.querySelector(
+                            ".faq-answer"
+                        );
+
+
+                    if (itemAnswer) {
+
+                        itemAnswer.style.maxHeight =
+                            null;
+
+                    }
+
+                });
+
+
+            // Open selected FAQ
+
+            if (!isActive) {
+
+                faqItem.classList.add(
+                    "active"
+                );
+
+
+                answer.style.maxHeight =
+                    answer.scrollHeight + "px";
+
             }
 
-        });
-
-
-        // Open clicked FAQ
-        if (!isActive) {
-
-            faqItem.classList.add("active");
-
-            answer.style.maxHeight =
-                answer.scrollHeight + "px";
-
         }
-
-    });
+    );
 
 });
